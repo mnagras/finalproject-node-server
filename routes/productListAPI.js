@@ -3,7 +3,7 @@ var router = express.Router();
 const unirest = require("unirest");
 /* request.query({ "entry": req.params.word });*/
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:searchKeyword', function(req, res, next) {
   /* res.send('API is working properly'); */
   const request = unirest("GET",
   "https://manamionlinestore.myshopify.com/admin/api/2020-10/products.json");
