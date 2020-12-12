@@ -17,6 +17,19 @@ router.get('/', function(req, res, next) {
 });
 });
 
+/* GET user . */
+router.get('/:userId', function(req, res, next) {
+ const request = unirest("GET", userUrl + '/' + req.params.userId)
+  .header("Content-Type", "application/json");
+
+  console.log("before getting User");
+    request.end(function (response) {
+     // if (response.error) throw new Error(response.error);
+       console.log("after getting User");
+       res.send(response);
+       console.log(response.body);
+});
+});
 router.post('/', function(req, res, next) {
 console.log("I am here for user posting");
  const request = unirest("POST", userUrl)

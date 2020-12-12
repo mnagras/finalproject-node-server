@@ -15,7 +15,7 @@ router.get('/:productId', function(req, res, next) {
   });
 
   request.end(function (response) {
-    if (response.error) throw new Error(response.error);
+    //if (response.error) throw new Error(response.error);
      console.log(response);
      res.send(response);
     /*res.json(response.body.associations_scored || {});*/
