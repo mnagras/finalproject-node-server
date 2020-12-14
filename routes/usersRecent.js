@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const unirest = require("unirest");
-const userUrl = "http://localhost:8080/users/recent"
+//const userUrl = "http://localhost:8080/users/recent";
+const userUrl = "https://cs4550-hw1-mnagras.herokuapp.com/users/recent";
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

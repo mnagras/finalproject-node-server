@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const unirest = require("unirest");
-const reviewUrl = "http://localhost:8080/reviews/recent";
+//const reviewUrl = "http://localhost:8080/reviews/recent";
+const reviewUrl = "https://cs4550-hw1-mnagras.herokuapp.com/reviews/recent";
 
 /* GET reviews listing. */
 router.get('/', function(req, res, next) {

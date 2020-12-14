@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const unirest = require("unirest");
-const followersUrl = "http://localhost:8080/followers";
-const followingUrl = "http://localhost:8080/following";
+//const followersUrl = "http://localhost:8080/followers";
+//const followingUrl = "http://localhost:8080/following";
+const followersUrl = "https://cs4550-hw1-mnagras.herokuapp.com/followers";
+const followingUrl = "https://cs4550-hw1-mnagras.herokuapp.com/following";
+
 
 /* GET followers listing. */
 router.get('/:userId', function(req, res, next) {
