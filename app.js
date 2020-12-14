@@ -10,6 +10,9 @@ var productListAPIRouter = require("./routes/productListAPI");
 var productAPIRouter = require("./routes/productAPI");
 var usersRouter = require('./routes/users');
 var reviewsRouter = require('./routes/reviews');
+var followersRouter = require('./routes/followers');
+var usersRecentRouter = require('./routes/usersRecent');
+var reviewsRecentRouter = require('./routes/reviewsRecent');
 
 var app = express();
 
@@ -29,6 +32,9 @@ app.use('/users', usersRouter);
 app.use("/productListAPI", productListAPIRouter);
 app.use("/productAPI", productAPIRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/followers", followersRouter);
+app.use("/users/recent", usersRecentRouter);
+app.use("/reviews/recent", reviewsRecentRouter);
 
 
 // catch 404 and forward to error handler

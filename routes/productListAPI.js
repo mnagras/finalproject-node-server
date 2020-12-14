@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const unirest = require("unirest");
 /* request.query({ "entry": req.params.word });*/
+
+
 /* GET users listing. */
 router.get('/:searchKeyword', function(req, res, next) {
   /* res.send('API is working properly'); */
@@ -21,6 +23,37 @@ router.get('/:searchKeyword', function(req, res, next) {
     /*res.json(response.body.associations_scored || {});*/
   });
 
+});
+
+router.get("/shop-info", (req, res) => {
+  fetch("https://manamionlinestore.myshopify.com/admin/api/graphql.json", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Access-Token": "e6cfef00d4ee0b7c835c2d465a1aa67c"
+    },
+    body: JSON.stringify({
+      query: `query findProducts($query: String!, $num: Int!) {
+         products(first: $num, query: $query) {
+           edges {
+             cursor
+             node {
+               id
+               title
+             }
+           }
+         }
+       }`,
+      variables: { query: "Cup", num: 50 }
+    })
+  })
+    .then(result => {
+      return result.json();
+    })
+    .then(data => {
+      console.log("data returned:\n", data);
+      res.send(data);
+    });
 });
 
 module.exports = router;

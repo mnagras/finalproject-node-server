@@ -17,6 +17,20 @@ router.get('/:productId', function(req, res, next) {
     });
 });
 
+/* GET reviews listing. */
+router.get('/user/:userId', function(req, res, next) {
+ const request = unirest("GET", reviewUrl + "/user/" + req.params.userId)
+  .header("Content-Type", "application/json");
+
+  console.log("before userReview getting");
+    request.end(function (response) {
+//      if (response.error) throw new Error(response.error);
+       console.log("after userReview getting");
+       res.send(response.body);
+       console.log(response.body);
+    });
+});
+
 router.post('/', function(req, res, next) {
 console.log("I am here for review posting");
  const request = unirest("POST", reviewUrl)
